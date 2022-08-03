@@ -183,7 +183,7 @@ public class PrintAddressController implements Initializable {
 
     public void LoadAddress(ActionEvent event) throws Exception{
         if(event.getSource().equals(LoadAddress)){
-            File mainFile = new File(System.getProperty("user.home") + "/OneDrive/OGA DISCOUNT WORK FOLDER/BVFM/BVFM.NG_4443336_1321418.xlsx");
+            File mainFile = new File(System.getProperty("user.home") + "/OneDrive Admin/OneDrive/BVFM/BVFM.NG_4443336_1321418.xlsx");
             File workingFile = new File(System.getProperty("user.home") + "/Desktop/BVFM/BVFM.NG_4443336_1321418.xlsx");
             File workingFile2 = new File(System.getProperty("user.home") + "/Desktop/BVFM/BVFM.NG_4443336_1321417.xlsx");
 
@@ -203,7 +203,7 @@ public class PrintAddressController implements Initializable {
 
 
             Loadservice.setOnSucceeded(event1 -> Loadservice.cancel());
-            Loadservice.setOnFailed(event1 -> Loadservice.cancel());
+            Loadservice.setOnFailed(event1 -> {Loadservice.cancel(); System.out.println("Failed");});
             Loadservice.restart();
 
             try {
